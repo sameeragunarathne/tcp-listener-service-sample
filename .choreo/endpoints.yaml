@@ -1,0 +1,7 @@
+version: 1.0
+
+endpoints:
+- name: TCP Listener Service 9090
+  port: 9090
+  type: GRPC
+  networkVisibility: Project
