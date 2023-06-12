@@ -4,7 +4,7 @@ RUN apk add --update --no-cache curl jq
 
 RUN mkdir -p /home/ballerina
 
-COPY resources/sameerag-tcp_listener_service-0.1.0.jar /home/ballerina/sameerag-tcp_listener_service-0.1.0.jar
+COPY resources/tcp_listener_service.jar /home/ballerina/tcp_listener_service.jar
 
 RUN adduser \
     --disabled-password \
@@ -20,4 +20,4 @@ WORKDIR /home/ballerina
 EXPOSE  9090
 USER 10014
 
-CMD java -jar 'sameerag-tcp_listener_service-0.1.0.jar'
+CMD java -jar 'tcp_listener_service.jar'
