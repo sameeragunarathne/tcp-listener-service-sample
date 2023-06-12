@@ -24,11 +24,31 @@ dependencies = [
 	{org = "ballerina", name = "jballerina.java"},
 	{org = "ballerina", name = "lang.value"}
 ]
+modules = [
+	{org = "ballerina", packageName = "io", moduleName = "io"}
+]
 
 [[package]]
 org = "ballerina"
 name = "jballerina.java"
 version = "0.0.0"
+
+[[package]]
+org = "ballerina"
+name = "lang.regexp"
+version = "0.0.0"
+dependencies = [
+	{org = "ballerina", name = "jballerina.java"}
+]
+
+[[package]]
+org = "ballerina"
+name = "lang.string"
+version = "0.0.0"
+dependencies = [
+	{org = "ballerina", name = "jballerina.java"},
+	{org = "ballerina", name = "lang.regexp"}
+]
 
 [[package]]
 org = "ballerina"
@@ -58,6 +78,15 @@ name = "observe"
 version = "1.0.7"
 dependencies = [
 	{org = "ballerina", name = "jballerina.java"}
+]
+
+[[package]]
+org = "ballerina"
+name = "regex"
+version = "1.4.3"
+dependencies = [
+	{org = "ballerina", name = "jballerina.java"},
+	{org = "ballerina", name = "lang.string"}
 ]
 
 [[package]]
@@ -93,13 +122,43 @@ modules = [
 ]
 
 [[package]]
+org = "ballerinax"
+name = "health.hl7v2"
+version = "1.0.5"
+dependencies = [
+	{org = "ballerina", name = "log"},
+	{org = "ballerina", name = "regex"},
+	{org = "ballerina", name = "tcp"},
+	{org = "ballerina", name = "time"}
+]
+modules = [
+	{org = "ballerinax", packageName = "health.hl7v2", moduleName = "health.hl7v2"}
+]
+
+[[package]]
+org = "ballerinax"
+name = "health.hl7v23"
+version = "1.0.6"
+dependencies = [
+	{org = "ballerina", name = "log"},
+	{org = "ballerina", name = "regex"},
+	{org = "ballerinax", name = "health.hl7v2"}
+]
+modules = [
+	{org = "ballerinax", packageName = "health.hl7v23", moduleName = "health.hl7v23"}
+]
+
+[[package]]
 org = "sameerag"
 name = "tcp_listener_service"
 version = "0.1.0"
 dependencies = [
+	{org = "ballerina", name = "io"},
 	{org = "ballerina", name = "log"},
 	{org = "ballerina", name = "tcp"},
-	{org = "ballerinai", name = "observe"}
+	{org = "ballerinai", name = "observe"},
+	{org = "ballerinax", name = "health.hl7v2"},
+	{org = "ballerinax", name = "health.hl7v23"}
 ]
 modules = [
 	{org = "sameerag", packageName = "tcp_listener_service", moduleName = "tcp_listener_service"}
