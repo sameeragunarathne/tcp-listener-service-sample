@@ -4,7 +4,7 @@ RUN apk add --update --no-cache curl jq
 
 RUN mkdir -p /home/ballerina
 
-RUN cp resources/sameerag-tcp_listener_service-0.1.0.jar /home/ballerina/sameerag-tcp_listener_service-0.1.0.jar
+COPY resources/sameerag-tcp_listener_service-0.1.0.jar /home/ballerina/sameerag-tcp_listener_service-0.1.0.jar
 
 RUN adduser \
     --disabled-password \
